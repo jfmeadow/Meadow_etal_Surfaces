@@ -5,7 +5,7 @@
 
 This document contains all statistical analyses conducted for the manuscript. Note that due to the random iterative nature of some analyses (such as beta-rarefaction, DB-RDA & PCA) some of the figure parameters will change slightly during reanalysis, though core results will remain essentially unchanged. 
 
-All data to reproduce analysis can be found here: `https://github.com/jfmeadow/Meadow_etal_Surfaces_Analysis`
+All data to reproduce analysis can be found here: `https://github.com/jfmeadow/Meadow_etal_Surfaces`
 
 -----------------
 

@@ -5,7 +5,7 @@
 
 This document contains all statistical analyses conducted for the manuscript. Note that due to the random iterative nature of some analyses (such as beta-rarefaction, DB-RDA & PCA) some of the figure parameters will change slightly during reanalysis, though core results will remain essentially unchanged. 
 
-All data to reproduce analysis can be found here: `https://github.com/jfmeadow/Meadow_etal_Surfaces_Analysis`
+All data to reproduce analysis can be found here: `https://github.com/jfmeadow/Meadow_etal_Surfaces`
 
 -----------------
 
@@ -88,7 +88,7 @@ swab.taxa <- swab.taxa[colnames(swab.table), ]
 After rarefaction, some important metrics: 
 
 * total sequences: 2.32 &times; 10<sup>5</sup>
-* total number of OTUs: 3776
+* total number of OTUs: 3820
 
 --------------------
 
@@ -110,9 +110,9 @@ adonis(swab.can ~ swab.map$type)
 ## Terms added sequentially (first to last)
 ## 
 ##               Df SumsOfSqs MeanSqs F.Model    R2 Pr(>F)    
-## swab.map$type  3      1.91   0.637    2.31 0.114  0.001 ***
-## Residuals     54     14.88   0.276         0.886           
-## Total         57     16.79                 1.000           
+## swab.map$type  3       1.9   0.635    2.29 0.113  0.001 ***
+## Residuals     54      15.0   0.277         0.887           
+## Total         57      16.9                 1.000           
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -132,9 +132,9 @@ anova(swab.caps)
 ## Permutation test for capscale under reduced model
 ## 
 ## Model: capscale(formula = swab.can ~ swab.map$type)
-##          Df   Var    F N.Perm Pr(>F)   
-## Model     3  1.91 2.31    199  0.005 **
-## Residual 54 14.88                      
+##          Df  Var    F N.Perm Pr(>F)   
+## Model     3  1.9 2.29    199  0.005 **
+## Residual 54 15.0                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -152,9 +152,9 @@ anova(swab.caps2)
 ## Permutation test for capscale under reduced model
 ## 
 ## Model: capscale(formula = swab.table ~ swab.map$type, distance = "canberra")
-##          Df   Var    F N.Perm Pr(>F)   
-## Model     3  1.91 2.31    199  0.005 **
-## Residual 54 14.88                      
+##          Df  Var    F N.Perm Pr(>F)   
+## Model     3  1.9 2.29    199  0.005 **
+## Residual 54 15.0                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -244,17 +244,17 @@ head(taxo)
 ##     kingdom         phylum               class              order
 ## 1  Bacteria Actinobacteria      Actinobacteria    Actinomycetales
 ## 7  Bacteria            SR1                   -                  -
+## 9  Bacteria Proteobacteria Gammaproteobacteria    Pseudomonadales
 ## 10 Bacteria Proteobacteria Alphaproteobacteria   Sphingomonadales
 ## 11 Bacteria  Bacteroidetes     Sphingobacteria Sphingobacteriales
 ## 12 Bacteria Proteobacteria Alphaproteobacteria        Rhizobiales
-## 13 Bacteria  Cyanobacteria         Chloroplast        Chlorophyta
 ##                family           genus abundance
-## 1  Corynebacteriaceae Corynebacterium         4
-## 7                   -               -       838
-## 10  Sphingomonadaceae    Sphingomonas      1640
-## 11   Flexibacteraceae     Dyadobacter       135
+## 1  Corynebacteriaceae Corynebacterium         1
+## 7                   -               -       850
+## 9       Moraxellaceae   Acinetobacter         1
+## 10  Sphingomonadaceae    Sphingomonas      1715
+## 11   Flexibacteraceae     Dyadobacter       153
 ## 12                  -               -        10
-## 13   Trebouxiophyceae               -       184
 ```
 
 
@@ -312,53 +312,53 @@ all.tops
 
 ```
 ##           CAP1      CAP2                  taxa pos indic surface  chair.ra
-## 17     0.29210  0.401617         Lactobacillus   1 0.001   chair 2.482e-03
-## 141    0.33446  0.321560       Corynebacterium   1 0.001   chair 2.737e-03
-## 639    0.22247  0.219930       Corynebacterium   1 0.001   chair 1.807e-03
-## 10800  0.20437  0.219050       Corynebacterium   1 0.001   chair 1.693e-03
-## 216    0.26637  0.113315        Staphylococcus   1 0.011   chair 1.552e-03
-## 188    0.21619  0.081006        Staphylococcus   1 0.012   chair 1.170e-03
-## 151    0.12730  0.174379         Lactobacillus   1 0.001   chair 1.110e-03
-## 64     0.11925  0.164070         Lactobacillus   1 0.001   chair 1.010e-03
-## 135    0.28188 -0.253388 CandidatusPhytoplasma   1 0.008    desk 1.977e-04
-## 530    0.22282 -0.122807         Streptococcus   1 0.001    desk 3.048e-04
-## 1961   0.19412 -0.082208         Brevundimonas   1 0.001    desk 3.788e-04
-## 1333   0.16294 -0.107948         Streptococcus   1 0.001    desk 1.288e-04
-## 153    0.16394 -0.101412         Streptococcus   1 0.001    desk 1.862e-04
-## 942   -0.16849 -0.205022      Alicyclobacillus   1 0.001    wall 7.015e-04
-## 314   -0.10698 -0.138775      Alicyclobacillus   1 0.001    wall 4.643e-04
-## 1881  -0.09869 -0.112025      Rhodopseudomonas   1 0.001    wall 4.260e-04
-## 21    -0.11687 -0.049085          Sphingomonas   1 0.054    wall 9.796e-04
-## 174   -0.36685  0.094731            Salmonella   1 0.001   floor 2.283e-04
-## 1312  -0.23127  0.005707     Chroococcidiopsis   1 0.104   floor 7.589e-04
-## 1076  -0.21281  0.058633            Roseomonas   1 0.001   floor 1.849e-04
-## 1203  -0.18086  0.024919     Chroococcidiopsis   1 0.045   floor 6.033e-04
-## 69    -0.16836  0.045294            Salmonella   1 0.001   floor 9.566e-05
-## 596   -0.17106  0.032129                     -   1 0.001   floor 7.398e-05
+## 17     0.27276  0.415179         Lactobacillus   1 0.001   chair 0.0024069
+## 141    0.30537  0.325324       Corynebacterium   1 0.001   chair 0.0025804
+## 639    0.23063  0.233268       Corynebacterium   1 0.001   chair 0.0018406
+## 10800  0.20817  0.234748       Corynebacterium   1 0.001   chair 0.0017347
+## 216    0.26771  0.110892        Staphylococcus   1 0.014   chair 0.0015344
+## 188    0.20078  0.100124        Staphylococcus   1 0.006   chair 0.0011888
+## 64     0.11712  0.176516         Lactobacillus   1 0.001   chair 0.0010191
+## 151    0.11639  0.176967         Lactobacillus   1 0.001   chair 0.0010485
+## 135    0.28550 -0.269799 CandidatusPhytoplasma   1 0.012    desk 0.0002028
+## 530    0.22064 -0.125365         Streptococcus   1 0.001    desk 0.0003355
+## 1333   0.17556 -0.125379         Streptococcus   1 0.001    desk 0.0001314
+## 153    0.18022 -0.111329         Streptococcus   1 0.001    desk 0.0002309
+## 1961   0.18254 -0.100863         Brevundimonas   1 0.001    desk 0.0003214
+## 942   -0.16204 -0.153377      Alicyclobacillus   1 0.001    wall 0.0007474
+## 314   -0.09518 -0.102071      Alicyclobacillus   1 0.001    wall 0.0004783
+## 82    -0.12505 -0.028408          Yonghaparkia   1 0.051    wall 0.0006824
+## 21    -0.11186 -0.061582          Sphingomonas   1 0.073    wall 0.0010293
+## 174   -0.36570  0.030164            Salmonella   1 0.001   floor 0.0002156
+## 1312  -0.22237  0.005107     Chroococcidiopsis   1 0.143   floor 0.0007296
+## 1076  -0.21807  0.017430            Roseomonas   1 0.001   floor 0.0001390
+## 1203  -0.18912  0.018228     Chroococcidiopsis   1 0.082   floor 0.0006008
+## 164   -0.17267  0.004875     Chroococcidiopsis   1 0.077   floor 0.0004464
+## 596   -0.17030  0.011427                     -   1 0.001   floor 0.0001071
 ##         desk.ra   wall.ra  floor.ra
-## 17    1.111e-04 1.089e-04 8.418e-05
-## 141   8.211e-04 5.344e-04 4.605e-04
-## 639   5.211e-04 3.133e-04 3.023e-04
-## 10800 4.144e-04 2.544e-04 2.564e-04
-## 216   9.644e-04 3.367e-04 3.304e-04
-## 188   8.011e-04 2.156e-04 2.691e-04
-## 151   6.000e-05 8.222e-05 4.209e-05
-## 64    3.222e-05 4.444e-05 1.786e-05
-## 135   1.880e-03 3.533e-04 2.666e-04
-## 530   1.201e-03 1.267e-04 1.237e-04
-## 1961  1.009e-03 1.256e-04 1.352e-04
-## 1333  8.856e-04 7.444e-05 4.592e-05
-## 153   9.322e-04 9.111e-05 1.186e-04
-## 942   9.533e-04 2.113e-03 8.788e-04
-## 314   6.589e-04 1.396e-03 5.880e-04
-## 1881  4.944e-04 1.233e-03 4.592e-04
-## 21    1.246e-03 1.358e-03 1.680e-03
-## 174   3.600e-04 5.089e-04 2.305e-03
-## 1312  4.578e-04 1.318e-03 1.365e-03
-## 1076  2.033e-04 3.422e-04 1.332e-03
-## 1203  3.344e-04 9.356e-04 1.122e-03
-## 69    1.544e-04 2.156e-04 1.054e-03
-## 596   1.744e-04 2.622e-04 1.040e-03
+## 17    1.200e-04 1.233e-04 7.908e-05
+## 141   7.756e-04 5.267e-04 4.235e-04
+## 639   5.778e-04 3.144e-04 3.036e-04
+## 10800 4.556e-04 2.711e-04 2.602e-04
+## 216   9.978e-04 3.389e-04 3.278e-04
+## 188   7.300e-04 1.922e-04 3.023e-04
+## 64    4.444e-05 4.889e-05 1.913e-05
+## 151   6.333e-05 8.222e-05 3.827e-05
+## 135   1.853e-03 3.544e-04 2.577e-04
+## 530   1.162e-03 1.367e-04 1.276e-04
+## 1333  9.311e-04 7.778e-05 3.954e-05
+## 153   9.644e-04 9.556e-05 1.046e-04
+## 1961  9.756e-04 1.556e-04 1.173e-04
+## 942   9.622e-04 2.127e-03 8.495e-04
+## 314   6.633e-04 1.331e-03 5.714e-04
+## 82    7.567e-04 1.022e-03 1.254e-03
+## 21    1.292e-03 1.403e-03 1.717e-03
+## 174   3.256e-04 5.444e-04 2.272e-03
+## 1312  4.600e-04 1.304e-03 1.300e-03
+## 1076  1.844e-04 3.589e-04 1.323e-03
+## 1203  3.489e-04 9.911e-04 1.140e-03
+## 164   2.533e-04 8.844e-04 9.120e-04
+## 596   1.633e-04 2.778e-04 1.056e-03
 ```
 
 
@@ -427,7 +427,7 @@ How much variance was explained by the axes?
 ```
 
 ```
-## [1] 0.3778 0.2320
+## [1] 0.3787 0.2304
 ```
 
 
@@ -612,12 +612,12 @@ mantel(vegdist(st.c, "canberra"), vegdist(data.frame(sm.c$xcor, sm.c$ycor),
 ## Call:
 ## mantel(xdis = vegdist(st.c, "canberra"), ydis = vegdist(data.frame(sm.c$xcor,      sm.c$ycor), "euclid")) 
 ## 
-## Mantel statistic r: -0.0308 
-##       Significance: 0.58 
+## Mantel statistic r: 0.0109 
+##       Significance: 0.45 
 ## 
 ## Upper quantiles of permutations (null model):
 ##   90%   95% 97.5%   99% 
-## 0.190 0.240 0.284 0.352 
+## 0.178 0.218 0.278 0.340 
 ## 
 ## Based on 999 permutations
 ```
@@ -634,12 +634,12 @@ mantel(vegdist(st.f, "canberra"), vegdist(data.frame(sm.f$xcor, sm.f$ycor),
 ## Call:
 ## mantel(xdis = vegdist(st.f, "canberra"), ydis = vegdist(data.frame(sm.f$xcor,      sm.f$ycor), "euclid")) 
 ## 
-## Mantel statistic r: 0.0393 
-##       Significance: 0.4 
+## Mantel statistic r: 0.0437 
+##       Significance: 0.39 
 ## 
 ## Upper quantiles of permutations (null model):
 ##   90%   95% 97.5%   99% 
-## 0.205 0.248 0.288 0.320 
+## 0.194 0.232 0.287 0.346 
 ## 
 ## Based on 999 permutations
 ```
@@ -656,12 +656,12 @@ mantel(vegdist(st.d, "canberra"), vegdist(data.frame(sm.d$xcor, sm.d$ycor),
 ## Call:
 ## mantel(xdis = vegdist(st.d, "canberra"), ydis = vegdist(data.frame(sm.d$xcor,      sm.d$ycor), "euclid")) 
 ## 
-## Mantel statistic r: -0.0671 
-##       Significance: 0.72 
+## Mantel statistic r: -0.0441 
+##       Significance: 0.61 
 ## 
 ## Upper quantiles of permutations (null model):
 ##   90%   95% 97.5%   99% 
-## 0.156 0.211 0.256 0.295 
+## 0.148 0.198 0.234 0.302 
 ## 
 ## Based on 999 permutations
 ```
@@ -678,12 +678,12 @@ mantel(vegdist(st.w, "canberra"), vegdist(data.frame(sm.w$xcor, sm.w$ycor),
 ## Call:
 ## mantel(xdis = vegdist(st.w, "canberra"), ydis = vegdist(data.frame(sm.w$xcor,      sm.w$ycor), "euclid")) 
 ## 
-## Mantel statistic r: -0.0896 
-##       Significance: 0.93 
+## Mantel statistic r: -0.06 
+##       Significance: 0.79 
 ## 
 ## Upper quantiles of permutations (null model):
-##   90%   95% 97.5%   99% 
-## 0.121 0.177 0.223 0.288 
+##    90%    95%  97.5%    99% 
+## 0.0982 0.1535 0.2060 0.2721 
 ## 
 ## Based on 999 permutations
 ```
@@ -700,12 +700,12 @@ mantel(vegdist(swab.table, "canberra"), vegdist(data.frame(swab.map$xcor, swab.m
 ## Call:
 ## mantel(xdis = vegdist(swab.table, "canberra"), ydis = vegdist(data.frame(swab.map$xcor,      swab.map$ycor), "euclid")) 
 ## 
-## Mantel statistic r: -0.00428 
-##       Significance: 0.54 
+## Mantel statistic r: -0.00269 
+##       Significance: 0.52 
 ## 
 ## Upper quantiles of permutations (null model):
 ##    90%    95%  97.5%    99% 
-## 0.0731 0.0922 0.1086 0.1317 
+## 0.0677 0.0864 0.1023 0.1163 
 ## 
 ## Based on 999 permutations
 ```
@@ -728,13 +728,13 @@ cor.test(vegdist(swab.table, "canberra"), vegdist(data.frame(swab.map$xcor,
 ## 	Pearson's product-moment correlation
 ## 
 ## data:  vegdist(swab.table, "canberra") and vegdist(data.frame(swab.map$xcor, swab.map$ycor), "euclid")
-## t = -0.174, df = 1651, p-value = 0.8619
+## t = -0.1092, df = 1651, p-value = 0.913
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  -0.05249  0.04394
+##  -0.05089  0.04553
 ## sample estimates:
 ##       cor 
-## -0.004283
+## -0.002688
 ```
 
 ```r
@@ -760,9 +760,9 @@ adonis(vegdist(st.w, "canberra") ~ sm.w$location2)
 ## Terms added sequentially (first to last)
 ## 
 ##                Df SumsOfSqs MeanSqs F.Model    R2 Pr(>F)
-## sm.w$location2  1      0.31   0.308     1.1 0.078   0.18
-## Residuals      13      3.65   0.281         0.922       
-## Total          14      3.95                 1.000
+## sm.w$location2  1      0.30   0.301    1.06 0.075   0.24
+## Residuals      13      3.69   0.284         0.925       
+## Total          14      3.99                 1.000
 ```
 
 
