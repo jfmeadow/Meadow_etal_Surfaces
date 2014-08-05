@@ -1,3 +1,19 @@
+---
+output:
+  html_document:
+    keep_md: true
+  pdf_document:
+    highlight: tango
+    toc: yes
+---
+
+```{r config, echo=FALSE}
+library(knitr)
+opts_chunk$set(background='gray80', tidy=FALSE, cache=FALSE, keep_md=TRUE, fig.path='figure/')
+```
+
+
+
 # Bacterial community analysis for surfaces in a university classroom
 ### **Meadow *et al.* "Bacterial communities on classroom surfaces vary with human contact"**
 
@@ -164,8 +180,18 @@ cap.txt <- data.frame(x=c(1.3, 1.1, -.8, -1),
 
 Check for significance of each indicator pointed out. This uses the `indval` function in the `labdsv` package - it essentially follows the procedure outlined in Dufrene & Legendre (1998). A few steps follow to format `indval` output for downstream analysis. 
 
+Due to a change in the indval function, these factor levels now must be entered as numbers. Here is the translation: 
+
+| numeric | level |  
+|---------|-------|
+| 1       | chair |
+| 2       | desk  |
+| 3       | floor |
+| 4       | wall  |
+
+
 ```{r,cache=TRUE}
-indic <- indval(swab.table, swab.map$type)
+indic <- indval(swab.table, clustering=as.numeric(swab.map$type))
 
 ch.ids <- paste('X',row.names(chair.tops), sep='')
 de.ids <- paste('X',row.names(desk.tops), sep='')
@@ -184,7 +210,7 @@ all.tops$surface <- factor(c(rep('chair', nrow(chair.tops)),
                       rep('floor', nrow(floor.tops))))
 for(i in 1:nrow(all.tops)) {
   all.tops$chair.ra[i] <- 
-		mean(swab.table[swab.map$type == 'chair', row.names(all.tops)[i]] / 
+  	mean(swab.table[swab.map$type == 'chair', row.names(all.tops)[i]] / 
            sum(swab.table[swab.map$type == 'chair', ]))
 	all.tops$desk.ra[i] <- 
 		mean(swab.table[swab.map$type == 'desk', row.names(all.tops)[i]] / 
